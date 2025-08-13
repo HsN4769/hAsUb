@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RSVP - Thibitisha Uwepo Wako</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Background na font */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #ffe0b2);
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.15) 0px, transparent 40px),
+        radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.15) 0px, transparent 40px);
+      color: #880e4f;
+      margin: 0;
+      padding: 30px 15px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Kichwa */
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #d81b60;
+      text-shadow: 1px 1px 6px rgba(136, 14, 79, 0.5);
+      user-select: none;
+      letter-spacing: 1.5px;
+    }
+
+    /* Buttons container */
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    /* Common btn styles */
+    .btn {
+      background-color: #d81b60;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(216, 27, 96, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      text-decoration: none;
+      display: inline-block;
+      flex: 1 1 auto;
+      min-width: 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -25%;
+      width: 150%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 80%);
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .btn:hover::before {
+      opacity: 1;
+      top: 0;
+      left: 0;
+      transition: all 0.5s ease;
+    }
+
+    .btn:hover {
+      background-color: #880e4f;
+      box-shadow: 0 8px 20px rgba(255, 20, 147, 0.7);
+      transform: translateY(-3px);
+    }
+
+    /* Form styling */
+    form {
+      background: #fff0f5;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(216, 27, 96, 0.25);
+      max-width: 450px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 2px solid #d81b60;
+      font-size: 1.1rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      resize: vertical;
+      min-height: 45px;
+      font-family: 'Poppins', sans-serif;
+      color: #5a004f;
+      box-sizing: border-box;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: inset 0 2px 5px rgba(216, 27, 96, 0.1);
+      font-weight: 500;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: #880e4f;
+      box-shadow: 0 0 8px 3px rgba(216, 27, 96, 0.3);
+      background-color: #fff5f9;
+    }
+
+    /* Maboresho textarea (ujumbe) */
+    textarea {
+      min-height: 130px;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      padding: 18px 22px;
+      border-radius: 20px;
+      border: 3px solid #d81b60;
+      background: linear-gradient(135deg, #ffe0f2, #ffd1d9);
+      box-shadow:
+        inset 0 2px 5px rgba(216, 27, 96, 0.2),
+        0 0 12px rgba(255, 20, 147, 0.5);
+      transition: all 0.4s ease;
+      color: #6a004b;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      resize: vertical;
+      letter-spacing: 0.5px;
+    }
+
+    textarea::placeholder {
+      color: #a9447b;
+      font-style: italic;
+      font-weight: 500;
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+
+    textarea:focus {
+      background: linear-gradient(135deg, #ffd1d9, #ffb0cc);
+      border-color: #880e4f;
+      box-shadow:
+        0 0 20px 5px rgba(255, 20, 147, 0.7);
+      outline: none;
+      color: #4a0034;
+      font-style: normal;
+    }
+
+    /* Error message styling */
+    .error-msg {
+      color: #b00020;
+      font-size: 0.95rem;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      text-align: left;
+      min-height: 1.2em;
+      font-weight: 600;
+      animation: shake 0.3s ease;
+    }
+
+    /* Shake animation for errors */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-5px); }
+      40%, 80% { transform: translateX(5px); }
+    }
+    
+    /* Radio buttons styling */
+    .radio-group {
+      margin: 15px 0;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 15px 20px;
+      border-radius: 15px;
+      border: 2px solid rgba(216, 27, 96, 0.3);
+    }
+    
+    .radio-title {
+      font-weight: 600;
+      color: #880e4f;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .radio-container {
+      display: inline-block;
+      position: relative;
+      margin-right: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+    }
+    
+    .radio-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    .radio-label {
+      display: inline-block;
+      padding: 8px 15px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      color: #880e4f;
+      font-weight: 500;
+    }
+    
+    .radio-container input:checked + .radio-label {
+      background: rgba(216, 27, 96, 0.7);
+      color: white;
+      box-shadow: 0 0 10px rgba(216, 27, 96, 0.5);
+    }
+    
+    .radio-container:hover .radio-label {
+      background: rgba(216, 27, 96, 0.4);
+      color: white;
+    }
+    
+    /* Number input styling */
+    input[type="number"] {
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 2px solid #d81b60;
+      font-size: 1.1rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      color: #5a004f;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    input[type="number"]:focus {
+      border-color: #880e4f;
+      box-shadow: 0 0 8px rgba(216, 27, 96, 0.5);
+    }
+    
+    /* Tel input styling */
+    input[type="tel"] {
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 2px solid #d81b60;
+      font-size: 1.1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      color: #5a004f;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    input[type="tel"]:focus {
+      border-color: #880e4f;
+      box-shadow: 0 0 8px rgba(216, 27, 96, 0.5);
+    }
+    
+    /* Success message */
+    .success-message {
+      background: rgba(76, 175, 80, 0.2);
+      color: #2e7d32;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-weight: 600;
+      border: 2px solid rgba(76, 175, 80, 0.5);
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .buttons {
+        gap: 10px;
+      }
+
+      .btn {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+        min-width: 90px;
+      }
+
+      form {
+        padding: 25px 20px;
+        gap: 14px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-size: 1rem;
+        padding: 12px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Thibitisha Uwepo Wako</h2>
+
+  <div class="buttons">
+    <button class="btn" onclick="alert('Unaelekea kwenye ukurasa wa nyumbani'); window.location.href='index.html'">Nyumbani</button>
+    <button class="btn" onclick="alert('Unaelekea kwenye ukurasa wa picha'); window.location.href='gallery.html'">Picha</button>
+    <button class="btn" onclick="alert('Unaelekea kwenye ukurasa wa zawadi'); window.location.href='gifts.html'">Zawadi</button>
+  </div>
+
+  <form id="rsvpForm" action="php/rsvp.php" method="POST" novalidate>
+    <input type="text" id="jina" name="jina" placeholder="Jina lako kamili" required minlength="3" maxlength="50" autocomplete="name" />
+    <div id="jinaError" class="error-msg"></div>
+
+    <input type="email" id="barua" name="barua" placeholder="Barua pepe" required autocomplete="email" />
+    <div id="baruaError" class="error-msg"></div>
+    
+    <input type="tel" id="simu" name="simu" placeholder="Namba ya simu (hiari)" pattern="[0-9\+\-\s]+" autocomplete="tel" />
+    <div id="simuError" class="error-msg"></div>
+    
+    <div class="radio-group">
+      <p class="radio-title">Utahudhuria?</p>
+      <label class="radio-container">
+        <input type="radio" name="attendance" value="ndio" checked>
+        <span class="radio-label">Ndio</span>
+      </label>
+      <label class="radio-container">
+        <input type="radio" name="attendance" value="hapana">
+        <span class="radio-label">Hapana</span>
+      </label>
+      <label class="radio-container">
+        <input type="radio" name="attendance" value="sijui">
+        <span class="radio-label">Sijui bado</span>
+      </label>
+    </div>
+    
+    <input type="number" id="wageni" name="wageni" min="0" max="5" placeholder="Idadi ya wageni wanaokufuatana" />
+    <div id="wageniError" class="error-msg"></div>
+
+    <textarea id="ujumbe" name="ujumbe" placeholder="Ujumbe kwa wanandoa (hiari)"></textarea>
+    <div id="ujumbeError" class="error-msg"></div>
+    
+    <div class="success-message" id="successMessage" style="display:none;">
+      Asante kwa kuthibitisha uwepo wako! Tutakuarifu maelezo zaidi kupitia barua pepe.
+    </div>
+
+    <button type="submit" class="btn" id="submitBtn">Thibitisha</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('rsvpForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Always prevent default for this demo site
+      let valid = true;
+
+      // Clear previous errors
+      document.getElementById('jinaError').textContent = '';
+      document.getElementById('baruaError').textContent = '';
+      document.getElementById('simuError').textContent = '';
+      document.getElementById('wageniError').textContent = '';
+      document.getElementById('ujumbeError').textContent = '';
+
+      // Validate Jina
+      const jina = document.getElementById('jina');
+      if (!jina.value.trim()) {
+        document.getElementById('jinaError').textContent = 'Tafadhali jaza jina lako.';
+        valid = false;
+        shakeError('jinaError');
+      } else if (jina.value.trim().length < 3) {
+        document.getElementById('jinaError').textContent = 'Jina lazima liwe na herufi zaidi ya 3.';
+        valid = false;
+        shakeError('jinaError');
+      }
+
+      // Validate Barua pepe
+      const barua = document.getElementById('barua');
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!barua.value.trim()) {
+        document.getElementById('baruaError').textContent = 'Tafadhali jaza barua pepe.';
+        valid = false;
+        shakeError('baruaError');
+      } else if (!emailPattern.test(barua.value.trim())) {
+        document.getElementById('baruaError').textContent = 'Barua pepe si sahihi.';
+        valid = false;
+        shakeError('baruaError');
+      }
+      
+      // Validate phone number if provided
+      const simu = document.getElementById('simu');
+      if (simu.value.trim() && !/^[0-9\+\-\s]+$/.test(simu.value.trim())) {
+        document.getElementById('simuError').textContent = 'Namba ya simu si sahihi.';
+        valid = false;
+        shakeError('simuError');
+      }
+      
+      // Validate number of guests if provided
+      const wageni = document.getElementById('wageni');
+      if (wageni.value.trim() && (parseInt(wageni.value) < 0 || parseInt(wageni.value) > 5)) {
+        document.getElementById('wageniError').textContent = 'Idadi ya wageni inatakiwa kuwa kati ya 0 na 5.';
+        valid = false;
+        shakeError('wageniError');
+      }
+
+      if (valid) {
+        // Show success message (in a real app, this would be after server response)
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Inatuma...';
+        
+        // Simulate server response
+        setTimeout(() => {
+          form.style.opacity = '0.5';
+          successMessage.style.display = 'block';
+          submitBtn.innerHTML = 'Imetumwa!';
+          
+          // Reset form after 3 seconds
+          setTimeout(() => {
+            form.reset();
+            form.style.opacity = '1';
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Thibitisha';
+            successMessage.style.display = 'none';
+          }, 3000);
+        }, 1500);
+      }
+    });
+
+    // Function to trigger shake animation on error div
+    function shakeError(id) {
+      const el = document.getElementById(id);
+      el.style.animation = 'none';
+      el.offsetHeight; /* trigger reflow */
+      el.style.animation = 'shake 0.3s ease';
+    }
+    
+    // Improve user experience with input focus effects
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        input.parentElement.classList.add('focused');
+      });
+      input.addEventListener('blur', () => {
+        input.parentElement.classList.remove('focused');
+      });
+    });
+  </script>
+
+</body>
+</html> 

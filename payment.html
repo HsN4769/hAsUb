@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malipo - Changia Zawadi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px),
+        linear-gradient(135deg, #fce4ec, #ffe0b2);
+      background-size: 20px 20px;
+      color: #880e4f;
+      margin: 0;
+      padding: 30px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #d81b60;
+      text-shadow: 1px 1px 3px rgba(136,14,79,0.3);
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    form {
+      background: #fff0f5;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(216, 27, 96, 0.3);
+      max-width: 400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: fadeIn 1.3s ease forwards;
+      opacity: 0;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 2px solid #d81b60;
+      font-size: 1.15rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: inset 0 2px 8px rgba(216,27,96,0.15);
+      font-weight: 600;
+      color: #5a004f;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border-color: #880e4f;
+      box-shadow: 0 0 10px 3px rgba(216, 27, 96, 0.5);
+      background-color: #fff5f9;
+    }
+
+    .btn {
+      background-color: #d81b60;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 15px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(216, 27, 96, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      text-decoration: none;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background-color: #880e4f;
+      box-shadow: 0 10px 25px rgba(255, 20, 147, 0.8);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Mawasiliano chini */
+    .contact-section {
+      margin-top: 40px;
+      max-width: 600px;
+      width: 100%;
+      background: #ffe0b2;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 6px 20px rgba(216, 27, 96, 0.15);
+      text-align: center;
+      animation: fadeIn 1.6s ease forwards;
+      opacity: 0;
+    }
+
+    .contact-section h3 {
+      color: #b24d70;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #b24d70;
+      padding-bottom: 8px;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .contact-item {
+      font-size: 1.15rem;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #880e4f;
+      flex-wrap: wrap;
+    }
+
+    .contact-item span.icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    /* Mitandao ya kijamii kama buttons */
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      background-color: #d81b60;
+      color: white;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 10px rgba(216, 27, 96, 0.5);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      display: inline-block;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus {
+      background-color: #880e4f;
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    /* Button kama link */
+    .back-btn {
+      display: inline-block;
+      margin-top: 35px;
+      background-color: #880e4f;
+      color: white;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(136, 14, 79, 0.7);
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    .back-btn:hover,
+    .back-btn:focus {
+      background-color: #d81b60;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+      }
+
+      form {
+        padding: 25px 20px;
+      }
+
+      .contact-section {
+        padding: 25px 20px;
+      }
+
+      .contact-item {
+        font-size: 1rem;
+        gap: 8px;
+      }
+
+      .social-links a {
+        font-size: 1rem;
+        padding: 7px 15px;
+      }
+
+      .back-btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Changia Zawadi</h2>
+
+  <form action="php/payment.php" method="POST">
+    <input type="text" name="jina" placeholder="Jina lako" required>
+    <input type="number" name="kiasi" placeholder="Kiasi (TZS)" required min="100" step="100">
+    <button type="submit" class="btn">Lipa</button>
+  </form>
+
+  <section class="contact-section" aria-label="Mawasiliano ya malipo">
+    <h3>Mawasiliano na Malipo</h3>
+
+    <div class="contact-item">
+      <span class="icon">📞</span> Simu: <a href="tel:+255622273287">+255 622 273 287</a>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">💬</span> WhatsApp: <a href="https://wa.me/255685103287" target="_blank" rel="noopener noreferrer">+255 685 103 287</a>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">🏦</span> Benki: <strong>NMB</strong> - Akaunti: 1234567890
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">🏧</span> Benki: <strong>CRDB</strong> - Akaunti: 9876543210
+    </div>
+
+    <div class="social-links">
+      <a href="https://facebook.com/harusihamisisubira" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://instagram.com/harusihamisisubira" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </section>
+
+  <a href="index.html" class="back-btn">Baki</a>
+
+</body>
+</html>

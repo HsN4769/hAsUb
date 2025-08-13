@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maelekezo - Harusi ya HAMISI na SUBIRA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff0f5 0%, #ffe6f0 100%);
+      color: #6a0d47;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #ad1457;
+      text-shadow: 1px 1px 4px rgba(173, 20, 87, 0.5);
+      user-select: none;
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 1.2rem;
+      margin: 10px auto 30px auto;
+      line-height: 1.7;
+      color: #7b2a53;
+      user-select: none;
+    }
+
+    img {
+      width: 100%;
+      max-width: 700px;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(173, 20, 87, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      margin-bottom: 30px;
+    }
+
+    img:hover {
+      transform: scale(1.06);
+      box-shadow: 0 16px 35px rgba(173, 20, 87, 0.55);
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 340px;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(173, 20, 87, 0.25);
+      margin-top: 15px;
+      margin-bottom: 45px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    iframe:hover {
+      box-shadow: 0 14px 40px rgba(173, 20, 87, 0.45);
+    }
+
+    .contact-section {
+      background-color: #fce4ec;
+      border-radius: 25px;
+      padding: 30px 25px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 700px;
+      box-shadow: 0 8px 28px rgba(173, 20, 87, 0.12);
+      user-select: none;
+    }
+
+    .contact-section h3 {
+      font-size: 2.1rem;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #bf1f58;
+      text-shadow: 1px 1px 3px rgba(191, 31, 88, 0.45);
+    }
+
+    .contact-item {
+      font-size: 1.15rem;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #7d2c58;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item span.icon {
+      font-size: 1.8rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+
+    .contact-item:hover span.icon {
+      color: #ad1457;
+      transform: scale(1.2);
+    }
+
+    .contact-item a {
+      color: #7d2c58;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #bf1f58;
+      text-decoration: underline;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 45px;
+      padding-bottom: 20px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .btn {
+      padding: 14px 38px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(173, 20, 87, 0.4);
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      color: white;
+      background: linear-gradient(135deg, #d81b60, #ff3366);
+      user-select: none;
+      text-decoration: none;
+      display: inline-block;
+      outline-offset: 4px;
+      position: relative;
+      z-index: 1;
+      min-width: 130px;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: -8px; bottom: -8px; left: -8px; right: -8px;
+      border-radius: 50px;
+      background: linear-gradient(270deg, #ff4081, #d81b60, #ff4081);
+      background-size: 600% 600%;
+      animation: gradientShift 6s linear infinite;
+      filter: blur(12px);
+      opacity: 0.45;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: linear-gradient(135deg, #ff3366, #d81b60);
+      box-shadow: 0 10px 30px rgba(255, 51, 102, 0.9);
+      transform: translateY(-4px) scale(1.05);
+      outline: 3px solid #fff0f5;
+      outline-offset: 4px;
+      animation-play-state: paused;
+      color: #fff;
+    }
+
+    .btn:hover::before,
+    .btn:focus::before {
+      opacity: 0.8;
+    }
+
+    /* Animations */
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 700px) {
+      h2 {
+        font-size: 2.4rem;
+      }
+      p {
+        font-size: 1.1rem;
+        max-width: 90%;
+      }
+      img, iframe, .contact-section, .buttons {
+        max-width: 100%;
+      }
+      .buttons {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        min-width: 110px;
+        font-size: 1rem;
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Jinsi ya Kufika</h2>
+  <p>Harusi itafanyika kwenye Ukumbi wa Mbagala Dar live, Dar es Salaam.</p>
+
+  <img src="image/mbagala.jpeg" alt="Picha ya juu ya Mbagala" />
+
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.209316621191!2d39.27076741477517!3d-6.896465795030422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4950c05179c1%3A0xc3ec52e50bc9f267!2sMbagala%2C%20Dar%20es%20Salaam%2C%20Tanzania!5e0!3m2!1sen!2stz!4v1691582920696!5m2!1sen!2stz" 
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <!-- Sehemu ya Mawasiliano -->
+  <section class="contact-section" aria-label="Mawasiliano">
+    <h3>Wasiliana Nasi</h3>
+    <div class="contact-item"><span class="icon">📞</span> Simu: <a href="tel:+255622273287">+255 622273287</a></div>
+    <div class="contact-item"><span class="icon">📧</span> Barua pepe: <a href="mailto:hamisingayonga33@gmail.com">harusi@example.com</a></div>
+    <div class="contact-item"><span class="icon">📍</span> Anwani: Ukumbi wa Mbagala Dar live, Dar es Salaam</div>
+    <div class="contact-item">
+      <span class="icon">🌐</span>
+      Mitandao ya Kijamii:
+      <a href="https://facebook.com/harusihamisisubira" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://wa.me/255123456789" target="_blank" rel="noopener noreferrer">WhatsApp</a> |
+      <a href="https://instagram.com/harusihamisisubira" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </section>
+
+  <div class="buttons">
+    <button class="btn" onclick="alert('Unaelekea kwenye ukurasa wa nyumbani'); window.location.href='index.html'">Nyumbani</button>
+    <button class="btn" onclick="alert('Unaelekea kwenye ukurasa wa picha'); window.location.href='gallery.html'">Picha</button>
+    <button class="btn" onclick="alert('Unaelekea kwenye ukurasa wa zawadi'); window.location.href='gifts.html'">Zawadi</button>
+  </div>
+
+</body>
+</html>

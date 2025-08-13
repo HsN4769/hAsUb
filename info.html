@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taarifa za Harusi - HAMISI na SUBIRA</title>
+  <meta name="description" content="Taarifa rasmi za harusi ya Hamisi na Subira.">
+  <meta name="keywords" content="harusi, taarifa, Hamisi, Subira, Mlimani City, Dar es Salaam">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, #fff5f8, #ffe0b2);
+      color: #5a2d2d;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 4px solid #b76e79;
+      width: 0;
+      animation: typing 3s steps(40) forwards, blink 0.75s step-end infinite;
+      max-width: 100%;
+      text-shadow: 0 0 8px rgba(183,110,121,0.6);
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 26ch; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .info-section, .contact-section {
+      background: rgba(255,255,255,0.8);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(183, 110, 121, 0.2);
+      padding: 30px 25px;
+      max-width: 700px;
+      width: 100%;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-section:hover, .contact-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(183, 110, 121, 0.4);
+    }
+
+    .info-section h2, .contact-section h2 {
+      color: #b76e79;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      border-bottom: 3px solid #b76e79;
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.15rem;
+      color: #5a2d2d;
+    }
+
+    ul li {
+      background: #fff;
+      padding: 12px 20px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(183, 110, 121, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    ul li:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 18px rgba(183, 110, 121, 0.3);
+    }
+
+    .contact-item {
+      font-size: 1.05rem;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+    .contact-item span.icon {
+      font-size: 1.5rem;
+      color: #b76e79;
+    }
+    .contact-item a {
+      color: #5a2d2d;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      color: #b76e79;
+      text-decoration: underline;
+    }
+
+    .social-media {
+      margin: 0 auto 30px;
+      max-width: 700px;
+      font-size: 1.2rem;
+    }
+    .social-media a {
+      color: #b76e79;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 10px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      background: rgba(183, 110, 121, 0.15);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .social-media a:hover {
+      background: #b76e79;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 700px;
+    }
+    .btn {
+      padding: 12px 32px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #b76e79;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #5a2d2d;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .info-section, .contact-section, .social-media, .buttons {
+        max-width: 95%;
+        padding: 20px 15px;
+      }
+      .btn {
+        padding: 10px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Taarifa Muhimu za Harusi</h1>
+
+  <section class="info-section" aria-label="Taarifa Muhimu">
+    <h2>Taarifa</h2>
+    <ul>
+      <li><strong>Tarehe:</strong> Jumamosi, 20 Desemba 2025</li>
+      <li><strong>Muda:</strong> Saa 9:00 Alasiri</li>
+      <li><strong>Mahali:</strong> Ukumbi wa Dar live Mbagala, Dar es Salaam</li>
+      <li><strong>Mavazi:</strong> Rasmi – Nyeupe, Dhahabu, Waridi</li>
+    </ul>
+  </section>
+
+  <section class="contact-section" aria-label="Mawasiliano">
+    <h2>Mawasiliano</h2>
+    <div class="contact-item"><span class="icon">📞</span> <a href="tel:+255622273287">+255 622 273 287</a> / <a href="tel:+255685103287">+255 685 103 287</a></div>
+    <div class="contact-item"><span class="icon">📧</span> <a href="mailto:hamisingayonga33@gmail.com">hamisingayonga33@gmail.com</a></div>
+    <div class="contact-item"><span class="icon">📍</span> Ukumbi wa  Dar live Mbagala , Dar es Salaam</div>
+  </section>
+ <section class="social-media" aria-label="Mitandao ya Kijamii">
+    <a href="https://www.facebook.com/profile.php?id=61563675050657" target="_blank">Facebook</a>
+    <a href="https://wa.me/25585103287" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/hamisi_ngayonga?igsh=dXdxb2hhNWZuMmhq" target="_blank">Instagram</a>
+  </section>
+  <div class="buttons">
+    <button class="btn" onclick="window.location.href='index.html'">Nyumbani</button>
+    <button class="btn" onclick="window.location.href='gallery.html'">Picha</button>
+    <button class="btn" onclick="window.location.href='gifts.html'">Zawadi</button>
+  </div>
+
+</body>
+</html>

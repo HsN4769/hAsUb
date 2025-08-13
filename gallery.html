@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Albamu ya Picha - Harusi ya HAMISI na SUBIRA</title>
+<meta name="description" content="Angalia picha nzuri za Hamisi na Subira katika albamu ya harusi yao" />
+<meta name="keywords" content="harusi, HAMISI, SUBIRA, albamu, picha, ndoa" />
+<meta property="og:title" content="Albamu ya Picha - Harusi ya HAMISI na SUBIRA" />
+<meta property="og:description" content="Angalia picha nzuri za Hamisi na Subira katika albamu ya harusi yao" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://harusihamisisubira.com/gallery.html" />
+<meta property="og:image" content="image/love.png" />
+<meta name="theme-color" content="#ff6f91" />
+<link rel="icon" href="image/love.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<!-- Improved accessibility -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Image Optimization -->
+<link rel="stylesheet" href="css/image-styles.css">
+<link rel="preload" as="image" href="image/love.png">
+<style>
+  /* Screen reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* ======== Muonekano wa kurasa zote ======== */
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    background: linear-gradient(270deg, #dd5978, #db805f, #e5b355, #c0c054);
+    background-size: 1200% 1200%;
+    animation: bgGradient 25s ease infinite;
+    overflow-x: hidden;
+    user-select: none;
+  }
+  @keyframes bgGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  /* Animated falling hearts */
+  .heart {
+    position: fixed;
+    top: 0;
+    font-size: 20px;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+  @keyframes fall {
+    0% {transform: translateY(-30px);}
+    100% {transform: translateY(110vh);}
+  }
+
+  /* Header */
+  header {
+    padding: 20px;
+    background: rgba(255, 192, 203, 0.85);
+    border-radius: 0 0 20px 20px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+    animation: headerPulse 6s ease-in-out infinite;
+    z-index: 10;
+  }
+  @keyframes headerPulse {
+    0%,100% {box-shadow: 0 0 20px #ff66a3;}
+    50% {box-shadow: 0 0 50px #ff1493;}
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    color: #c71585;
+    text-shadow:
+      0 0 6px #ff4d79,
+      0 0 15px #ff1493,
+      0 0 30px #ff69a9;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+  }
+
+  /* Nav */
+  nav {
+    margin-top: 15px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 700;
+    background: rgba(255, 105, 180, 0.6);
+    padding: 8px 18px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    transition: all 0.35s ease;
+    font-size: 1.15rem;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+  nav a::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: all 0.5s ease;
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 2;
+  }
+  nav a:hover::before {
+    left: 100%;
+  }
+  nav a:hover {
+    background: #ff2a6d;
+    box-shadow: 0 0 35px #ff2a6d, 0 0 55px #ff4d79;
+    transform: scale(1.15);
+    z-index: 3;
+  }
+
+  /* Main content */
+  main {
+    padding: 60px 20px 80px;
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  main h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-shadow:
+      0 0 10px rgba(255, 64, 129, 0.6);
+  }
+
+  /* Gallery styles */
+  .gallery-wrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.6));
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: spinGroup 20s linear infinite;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes spinGroup {
+    0%   { transform: rotate(0deg) translateZ(0); }
+    100% { transform: rotate(360deg) translateZ(0); }
+  }
+
+  .gallery a {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid gold;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.7);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+  }
+  .gallery a:hover {
+    transform: scale(1.15) rotateY(10deg) translateZ(10px);
+    box-shadow: 0 0 35px rgba(255, 20, 147, 0.9);
+    z-index: 5;
+    border-color: #ffffa0;
+  }
+  .gallery a:active {
+    transform: scale(0.95);
+  }
+
+  /* Picha kwenye pembe tofauti */
+  .gallery a:nth-child(1) { 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%) translateZ(5px); 
+    animation: floatTop 3s ease-in-out infinite;
+  }
+  .gallery a:nth-child(2) { 
+    top: 50%; 
+    right: 0; 
+    transform: translateY(-50%) translateZ(5px);
+    animation: floatRight 3s ease-in-out infinite;
+  }
+  .gallery a:nth-child(3) { 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%) translateZ(5px);
+    animation: floatBottom 3s ease-in-out infinite;
+  }
+  .gallery a:nth-child(4) { 
+    top: 50%; 
+    left: 0; 
+    transform: translateY(-50%) translateZ(5px);
+    animation: floatLeft 3s ease-in-out infinite;
+  }
+
+  @keyframes floatTop {
+    0%, 100% { transform: translateX(-50%) translateY(0) translateZ(5px); }
+    50% { transform: translateX(-50%) translateY(-8px) translateZ(5px); }
+  }
+  @keyframes floatRight {
+    0%, 100% { transform: translateY(-50%) translateX(0) translateZ(5px); }
+    50% { transform: translateY(-50%) translateX(8px) translateZ(5px); }
+  }
+  @keyframes floatBottom {
+    0%, 100% { transform: translateX(-50%) translateY(0) translateZ(5px); }
+    50% { transform: translateX(-50%) translateY(8px) translateZ(5px); }
+  }
+  @keyframes floatLeft {
+    0%, 100% { transform: translateY(-50%) translateX(0) translateZ(5px); }
+    50% { transform: translateY(-50%) translateX(-8px) translateZ(5px); }
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+  }
+  
+  .gallery a:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Picha katikati */
+  .center-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    transform: translate(-50%, -50%) translateZ(10px);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid #ff3366;
+    box-shadow: 0 0 35px rgba(255, 51, 102, 0.9);
+    background: white;
+    z-index: 10;
+    animation: pulseGlow 2.5s infinite, floatCenter 4s ease-in-out infinite;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes floatCenter {
+    0%, 100% { transform: translate(-50%, -50%) translateZ(10px); }
+    50% { transform: translate(-50%, -50%) translateZ(20px); }
+  }
+  
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 15px rgba(255, 51, 102, 0.6); }
+    50% { box-shadow: 0 0 45px rgba(255, 105, 180, 1); }
+    100% { box-shadow: 0 0 15px rgba(255, 51, 102, 0.6); }
+  }
+  
+  .center-image:hover {
+    transform: translate(-50%, -50%) scale(1.1) translateZ(15px);
+    border-color: #ff1493;
+    box-shadow: 0 0 50px rgba(255, 20, 147, 1);
+  }
+  
+  .center-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+  }
+  
+  .center-image:hover img {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  /* Modal Popup */
+  #modal {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.3s ease;
+  }
+  
+  #modal.loading::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+    border: 5px solid rgba(255,105,180,0.3);
+    border-top-color: #ff1493;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  #modal.closing {
+    opacity: 0;
+  }
+  
+  #modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(255,105,180,0.8);
+    animation: zoomIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    border: 3px solid rgba(255,255,255,0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  #modal.loading img {
+    opacity: 0;
+  }
+  
+  /* Lazy loading styles */
+  img.lazy {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  img.loaded {
+    opacity: 1;
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background: rgba(255, 51, 102, 0.6);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+    outline: none;
+    z-index: 10;
+  }
+  
+  .close-button:hover, 
+  .close-button:focus {
+    transform: scale(1.2);
+    background: rgba(255, 51, 102, 0.8);
+    box-shadow: 0 0 25px rgba(255, 51, 102, 0.7);
+  }
+  
+  .modal-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+  }
+  
+  #modal.caption-visible .modal-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .gallery-wrapper {
+      width: 400px;
+      height: 400px;
+    }
+    .gallery a {
+      width: 120px;
+      height: 120px;
+      border-width: 4px;
+    }
+    .center-image {
+      width: 150px;
+      height: 150px;
+      border-width: 5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery-wrapper {
+      width: 300px;
+      height: 300px;
+    }
+    .gallery a {
+      width: 90px;
+      height: 90px;
+      border-width: 3px;
+    }
+    .center-image {
+      width: 110px;
+      height: 110px;
+      border-width: 4px;
+    }
+    header h1 {
+      font-size: 1.8rem;
+    }
+    main h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .gallery-wrapper {
+      width: 250px;
+      height: 250px;
+    }
+    .gallery a {
+      width: 70px;
+      height: 70px;
+      border-width: 2px;
+    }
+    .center-image {
+      width: 90px;
+      height: 90px;
+      border-width: 3px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hearts falling animation -->
+<script>
+const heartColors = ['#ff2a6d', '#ff69b4', '#ffb07c', '#ff6f61', '#ff8c8c'];
+for (let i = 0; i < 25; i++) {
+  let heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.top = (Math.random() * -100) + "px"; // random start a bit above viewport
+  heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
+  heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+  heart.style.opacity = (0.3 + Math.random() * 0.7);
+  heart.innerHTML = "💖";
+  document.body.appendChild(heart);
+}
+</script>
+
+<header>
+  <h1>Harusi ya HAMISI na SUBIRA - Albamu ya Picha</h1>
+  <nav>
+    <a href="index.html">Nyumbani</a>
+    <a href="about.html">Kuhusu</a>
+    <a href="info.html">Taarifa</a>
+    <a href="gallery.html">Picha</a>
+    <a href="rsvp.html">RSVP</a>
+    <a href="directions.html">Maelekezo</a>
+    <a href="gifts.html">Zawadi</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Albamu ya Picha</h2>
+  <div class="gallery-wrapper">
+    <!-- Picha katikati -->
+    <div class="center-image" 
+         onclick="openModal(this.querySelector('img').src)" 
+         title="Picha ya Upendo" 
+         role="button" 
+         tabindex="0" 
+         aria-label="Fungua picha ya Hamisi na Subira katika dirisha kubwa"
+         onkeydown="if(event.key==='Enter'){openModal(this.querySelector('img').src); return false;}">
+      <img src="image/love.png" alt="Picha ya Hamisi na Subira wakionyesha upendo" />
+    </div>
+    <!-- Picha zinazozunguka -->
+    <div class="gallery" role="region" aria-label="Albamu ya picha za harusi">
+      <a href="bibi.html" 
+         title="Bibi Harusi - Maelezo Zaidi" 
+         onclick="openModal(event, this.querySelector('img').src); return false;" 
+         role="button" 
+         tabindex="0"
+         aria-label="Fungua picha ya Bibi Harusi katika dirisha kubwa" 
+         onkeydown="if(event.key==='Enter'){openModal(event, this.querySelector('img').src); return false;}">
+        <img src="image/suuh.JPG" alt="Picha ya Subira, Bibi Harusi" loading="lazy" />
+      </a>
+      <a href="bwana.html" 
+         title="Bwana Harusi - Maelezo Zaidi" 
+         onclick="openModal(event, this.querySelector('img').src); return false;"
+         role="button" 
+         tabindex="0"
+         aria-label="Fungua picha ya Bwana Harusi katika dirisha kubwa"
+         onkeydown="if(event.key==='Enter'){openModal(event, this.querySelector('img').src); return false;}">
+        <img src="image/hs.jpg" alt="Picha ya Hamisi, Bwana Harusi" loading="lazy" />
+      </a>
+      <a href="mgeni1.html" 
+         title="Mgeni Maalum - Maelezo Zaidi" 
+         onclick="openModal(event, this.querySelector('img').src); return false;"
+         role="button" 
+         tabindex="0"
+         aria-label="Fungua picha ya mgeni maalum katika dirisha kubwa"
+         onkeydown="if(event.key==='Enter'){openModal(event, this.querySelector('img').src); return false;}">
+        <img src="image/mk.JPG" alt="Picha ya mgeni maalum wa harusi" loading="lazy" />
+      </a>
+      <a href="mgeni2.html" 
+         title="Mgeni - Maelezo Zaidi" 
+         onclick="openModal(event, this.querySelector('img').src); return false;"
+         role="button" 
+         tabindex="0"
+         aria-label="Fungua picha ya mgeni katika dirisha kubwa"
+         onkeydown="if(event.key==='Enter'){openModal(event, this.querySelector('img').src); return false;}">
+        <img src="image/ku.jpg" alt="Picha ya mgeni wa harusi" loading="lazy" />
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- Modal popup -->
+<div id="modal" 
+     onclick="closeModal()" 
+     role="dialog" 
+     aria-modal="true" 
+     aria-label="Picha kubwa" 
+     tabindex="-1">
+  <button class="close-button" 
+          onclick="closeModal()" 
+          aria-label="Funga picha" 
+          title="Funga"
+          tabindex="0">✖</button>
+  <img src="" alt="Picha kubwa iliyochaguliwa" />
+  <div class="modal-caption"></div>
+</div>
+
+<script>
+  // Store the last focused element to return focus when modal closes
+  window.lastFocusedElement = null;
+  
+  // Improved modal functionality
+  function openModal(event, src) {
+    if(event) event.preventDefault();
+    const modal = document.getElementById('modal');
+    const modalImg = modal.querySelector('img');
+    const modalCaption = modal.querySelector('.modal-caption');
+    
+    // Store the element that opened the modal
+    window.lastFocusedElement = document.activeElement;
+    
+    // Add loading animation while image loads
+    modal.classList.add('loading');
+    modal.style.display = 'flex';
+    
+    // Get caption from title attribute if available
+    let caption = "";
+    if (event && event.currentTarget) {
+      caption = event.currentTarget.getAttribute('title') || '';
+    }
+    
+    // Set caption if available
+    if (caption) {
+      modalCaption.textContent = caption;
+      setTimeout(() => {
+        modal.classList.add('caption-visible');
+      }, 500);
+    } else {
+      modal.classList.remove('caption-visible');
+      modalCaption.textContent = '';
+    }
+    
+    // Set src after a small delay to allow transition to start
+    setTimeout(() => {
+      modalImg.src = src;
+      
+      // Remove loading class when image is fully loaded
+      modalImg.onload = function() {
+        modal.classList.remove('loading');
+        // Focus the close button for keyboard accessibility
+        modal.querySelector('.close-button').focus();
+      };
+    }, 100);
+    
+    // Prevent scrolling on body when modal is open
+    document.body.style.overflow = 'hidden';
+    
+    // Add keyboard support for closing
+    document.addEventListener('keydown', handleEscKey);
+    
+    // Announce to screen readers
+    const announcer = document.createElement('div');
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.setAttribute('class', 'sr-only');
+    announcer.textContent = 'Picha imefunguliwa katika dirisha kubwa';
+    document.body.appendChild(announcer);
+    
+    // Remove announcer after it's been read
+    setTimeout(() => {
+      document.body.removeChild(announcer);
+    }, 1000);
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('modal');
+    
+    // Add closing animation
+    modal.classList.add('closing');
+    modal.classList.remove('caption-visible');
+    
+    // Wait for animation to complete before hiding
+    setTimeout(() => {
+      modal.style.display = 'none';
+      modal.classList.remove('closing');
+      modal.querySelector('img').src = '';
+      modal.querySelector('.modal-caption').textContent = '';
+    }, 300);
+    
+    // Re-enable scrolling
+    document.body.style.overflow = '';
+    
+    // Remove keyboard listener
+    document.removeEventListener('keydown', handleEscKey);
+    
+    // Return focus to the element that opened the modal
+    if (window.lastFocusedElement) {
+      window.lastFocusedElement.focus();
+    }
+    
+    // Announce to screen readers
+    const announcer = document.createElement('div');
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.setAttribute('class', 'sr-only');
+    announcer.textContent = 'Dirisha la picha limefungwa';
+    document.body.appendChild(announcer);
+    
+    // Remove announcer after it's been read
+    setTimeout(() => {
+      document.body.removeChild(announcer);
+    }, 1000);
+  }
+  
+  // Close modal when ESC key is pressed
+  function handleEscKey(e) {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  }
+  
+  // Lazy loading for gallery images
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add lazy loading attribute to all images
+    const images = document.querySelectorAll('.gallery img, .center-image img');
+    images.forEach(img => {
+      // Store original src
+      const src = img.getAttribute('src');
+      // Replace with placeholder
+      img.setAttribute('data-src', src);
+      img.setAttribute('src', 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3C/svg%3E');
+      img.classList.add('lazy');
+    });
+    
+    // Create intersection observer for lazy loading
+    if ('IntersectionObserver' in window) {
+      const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.remove('lazy');
+            lazyImage.classList.add('loaded');
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      // Observe all lazy images
+      const lazyImages = document.querySelectorAll('img.lazy');
+      lazyImages.forEach(img => {
+        lazyImageObserver.observe(img);
+      });
+    } else {
+      // Fallback for browsers that don't support Intersection Observer
+      const lazyImages = document.querySelectorAll('img.lazy');
+      lazyImages.forEach(img => {
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+        img.classList.add('loaded');
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
